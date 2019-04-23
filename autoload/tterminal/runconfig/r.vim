@@ -1,8 +1,8 @@
 " @Author:      Tom Link (mailto:micathom AT gmail com?subject=[vim])
 " @Website:     https://github.com/tomtom
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Last Change: 2019-04-20
-" @Revision:    665
+" @Last Change: 2019-04-21
+" @Revision:    666
 
 
 if !exists('g:tterminal#runconfig#r#cmd')
@@ -52,7 +52,8 @@ endif
 
 if !exists('g:tterminal#runconfig#r#init_code')
     " Evaluate this code on startup.
-    let g:tterminal#runconfig#r#init_code = 'tterminalCtags()'   "{{{2
+    let g:tterminal#runconfig#r#init_code = ''   "{{{2
+    " let g:tterminal#runconfig#r#init_code = 'tterminalCtags()'   "{{{2
 endif
 
 
