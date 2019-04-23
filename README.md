@@ -64,9 +64,9 @@ Also available via git: http://github.com/tomtom/tterminal_vim
 
 Please configure the plugin via the following parameters:
 
-    - `g:tterminal_autoenable_filetypes`
-    - `g:tterminal#runconfigs`
-    - `g:tterminal#cmd_map`
+- `g:tterminal_autoenable_filetypes`
+- `g:tterminal#runconfigs`
+- `g:tterminal#cmd_map`
 
 
 
