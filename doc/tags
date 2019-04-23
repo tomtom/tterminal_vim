@@ -1,0 +1,15 @@
+autoload/tterminal/runconfig/r.vim	tterminal.txt	/*autoload\/tterminal\/runconfig\/r.vim*
+g:tterminal#runconfig#r#formatR_options	tterminal.txt	/*g:tterminal#runconfig#r#formatR_options*
+g:tterminal#runconfig#r#handle_qfl_expression_f	tterminal.txt	/*g:tterminal#runconfig#r#handle_qfl_expression_f*
+g:tterminal#runconfig#r#highlight_debug	tterminal.txt	/*g:tterminal#runconfig#r#highlight_debug*
+g:tterminal#runconfig#r#init_code	tterminal.txt	/*g:tterminal#runconfig#r#init_code*
+g:tterminal#runconfig#r#init_files	tterminal.txt	/*g:tterminal#runconfig#r#init_files*
+g:tterminal#runconfig#r#restore	tterminal.txt	/*g:tterminal#runconfig#r#restore*
+g:tterminal#runconfig#r#save	tterminal.txt	/*g:tterminal#runconfig#r#save*
+g:tterminal#runconfig#r#use_formatR	tterminal.txt	/*g:tterminal#runconfig#r#use_formatR*
+g:tterminal_autoenable_filetypes	tterminal.txt	/*g:tterminal_autoenable_filetypes*
+plugin/tterminal.vim	tterminal.txt	/*plugin\/tterminal.vim*
+tterminal#runconfig#r#Debug()	tterminal.txt	/*tterminal#runconfig#r#Debug()*
+tterminal#runconfig#r#SetupBuffer()	tterminal.txt	/*tterminal#runconfig#r#SetupBuffer()*
+tterminal#runconfig#r#Undebug()	tterminal.txt	/*tterminal#runconfig#r#Undebug()*
+tterminal.txt	tterminal.txt	/*tterminal.txt*

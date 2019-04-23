@@ -1,18 +1,20 @@
-The |:Tterminal| command facilitates evaluating code in a terminal.
+The `:Tterminal` command facilitates evaluating code in a terminal.
 
-    - It start the right command (defined via run configurations aka 
-      "runconfigs") for the current filetype
-    - It installs a map (<c-cr>) that sends the current line or selection to 
-      the terminal
-    - For certain filetypes (e.g. R) it also supports omnicompletion (see 
-      'omnifunc') via <c-x><c-o>
-    - All buffers with the same runconfig and the same working directory 
-      (usually all buffers of a project with the same 'filetype') share the 
-      same terminal
+- It start the right command (defined via run configurations aka "runconfigs") 
+  for the current filetype
+- It installs a map (\<c-cr>) that sends the current line or selection to the 
+  terminal
+- For certain filetypes (e.g. R) it also supports omnicompletion (see 
+  'omnifunc') via \<c-x>\<c-o>
+  NOTE: The terminal must be visible for this to work since this relies on 
+  `terminal-api`.
+- All buffers with the same runconfig and the same working directory (usually 
+  all buffers of a project with the same 'filetype') share the same terminal
 
 Examples: >
 
-    " Run a terminal with the default command for the current filetype
+    " Run a terminal with the default command for the current filetype.
+    " If no runconfig is defined for the current filetype, open 'shell'.
     :Tterminal
 
     " Run a terminal with a custom runconfig (e.g. a command with special 
@@ -23,20 +25,18 @@ Examples: >
     " runconfig)
     :Tterminal my-r-wrapper.sh
 
-    " Run a shell
-    :Tterminal
-
 General maps:
 
-    <c-cr> ... Send the current line or selection to the terminal
+\<c-cr> ... Send the current line or selection to the terminal
 
 For additional maps per filetype please see:
 
-    R -> |tterminal#runconfig#r#SetupBuffer()|
+R -> `tterminal#runconfig#r#SetupBuffer()`
 
 
 -----------------------------------------------------------------------
-Install~
+
+# Install
 
 Either use the zip archive:
 
@@ -60,13 +60,13 @@ https://github.com/tomtom/tlib_vim
 Also available via git: http://github.com/tomtom/tterminal_vim
 
 
-Setup~
+# Setup
 
 Please configure the plugin via the following parameters:
 
-    - |g:tterminal_autoenable_filetypes|
-    - |g:tterminal#runconfigs|
-    - |g:tterminal#cmd_map|
+    - `g:tterminal_autoenable_filetypes`
+    - `g:tterminal#runconfigs`
+    - `g:tterminal#cmd_map`
 
 
 
