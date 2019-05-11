@@ -66,15 +66,16 @@ Setup~
 
 Please configure the plugin via the following parameters:
 
-    - |g:tterminal_autoenable_filetypes|
-    - |g:tterminal#runconfigs|
-    - |g:tterminal#cmd_map|
+- |g:tterminal_autoenable_filetypes|
+- |g:tterminal#runconfigs|
+- |g:tterminal#cmd_map|
 
 
 ========================================================================
 Contents~
 
         g:tterminal_autoenable_filetypes .................. |g:tterminal_autoenable_filetypes|
+        g:tterminal#interaction_mode ...................... |g:tterminal#interaction_mode|
         g:tterminal#runconfig#r#save ...................... |g:tterminal#runconfig#r#save|
         g:tterminal#runconfig#r#restore ................... |g:tterminal#runconfig#r#restore|
         g:tterminal#runconfig#r#highlight_debug ........... |g:tterminal#runconfig#r#highlight_debug|
@@ -97,6 +98,16 @@ g:tterminal_autoenable_filetypes (default: [])
 
 
 ------------------------------------------------------------------------
+                                                    *autoload/tterminal.vim*
+                                                    *g:tterminal#interaction_mode*
+g:tterminal#interaction_mode   (default: has('win32') || has('win64') ? 'file' : 'terminal')
+    Possible values:
+    - terminal
+    - scrape
+    - file
+
+
+------------------------------------------------------------------------
                                                     *autoload/tterminal/runconfig/r.vim*
                                                     *g:tterminal#runconfig#r#save*
 g:tterminal#runconfig#r#save   (default: 1)
@@ -112,6 +123,7 @@ g:tterminal#runconfig#r#highlight_debug (default: 'SpellRare')
 
                                                     *g:tterminal#runconfig#r#init_code*
 g:tterminal#runconfig#r#init_code (default: '')
+    A string or a list of strings.
     Evaluate this code on startup.
 
                                                     *g:tterminal#runconfig#r#init_files*

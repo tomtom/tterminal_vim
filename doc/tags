@@ -1,4 +1,6 @@
+autoload/tterminal.vim	tterminal.txt	/*autoload\/tterminal.vim*
 autoload/tterminal/runconfig/r.vim	tterminal.txt	/*autoload\/tterminal\/runconfig\/r.vim*
+g:tterminal#interaction_mode	tterminal.txt	/*g:tterminal#interaction_mode*
 g:tterminal#runconfig#r#formatR_options	tterminal.txt	/*g:tterminal#runconfig#r#formatR_options*
 g:tterminal#runconfig#r#handle_qfl_expression_f	tterminal.txt	/*g:tterminal#runconfig#r#handle_qfl_expression_f*
 g:tterminal#runconfig#r#highlight_debug	tterminal.txt	/*g:tterminal#runconfig#r#highlight_debug*
