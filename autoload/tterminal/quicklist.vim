@@ -1,8 +1,8 @@
 " @Author:      Tom Link (mailto:micathom AT gmail com?subject=[vim])
 " @Website:     https://github.com/tomtom
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Last Change: 2019-04-13
-" @Revision:    2
+" @Last Change: 2019-04-23
+" @Revision:    3
 
 
 if !exists('g:tterminal#quicklist#handlers')
@@ -13,7 +13,7 @@ endif
 function! tterminal#quicklist#Select(word) "{{{3
     Tlibtrace 'tterminal', a:word
     if !exists('g:loaded_tlib')
-        throw 'tterminal#quicklist#Select requires tlib to be installed'
+        throw 'tterminal#quicklist#Select requires tlib (http://bit.ly/tlib_vim) to be installed'
     endif
     let l:runconfig = tterminal#GetTerminalRunConfig()
     if exists('g:tterminal#runconfig#'. rdef.name .'#quicklist')
