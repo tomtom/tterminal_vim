@@ -1,12 +1,12 @@
 " @Author:      Tom Link (mailto:micathom AT gmail com?subject=[vim])
 " @Website:     https://github.com/tomtom
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Last Change: 2019-04-21
-" @Revision:    666
+" @Last Change: 2019-05-06
+" @Revision:    685
 
 
 if !exists('g:tterminal#runconfig#r#cmd')
-    let g:tterminal#runconfig#r#cmd = executable('Rterm') ? 'Rterm' : 'R'   "{{{2
+    let g:tterminal#runconfig#r#cmd = executable('Rterm.exe') ? 'Rterm' : 'R'   "{{{2
 endif
 if !executable(g:tterminal#runconfig#r#cmd)
     throw 'Tterminal: g:tterminal#runconfig#r#cmd is not executable: '. g:tterminal#runconfig#r#cmd
@@ -51,6 +51,7 @@ endif
 
 
 if !exists('g:tterminal#runconfig#r#init_code')
+    " A string or a list of strings.
     " Evaluate this code on startup.
     let g:tterminal#runconfig#r#init_code = ''   "{{{2
     " let g:tterminal#runconfig#r#init_code = 'tterminalCtags()'   "{{{2
@@ -84,7 +85,9 @@ endif
 
 
 let s:prototype = {'debugged': {}
+            \ , 'wait_init': 500
             \ }
+            " \, 'eof': 'q()'
 
 function! tterminal#runconfig#r#New(ext) abort "{{{3
     let o = extend(a:ext, s:prototype)
@@ -194,6 +197,27 @@ function! s:prototype.HighlightDebug() abort dict "{{{3
     finally
         exec 'hide buffer' bufnr
     endtry
+endf
+
+
+function! s:prototype.WrapCode(code, interaction_mode) abort dict "{{{3
+    if a:interaction_mode ==# 'terminal'
+        let l:code = printf('tterminalSendResponse({%s})', a:code)
+    elseif a:interaction_mode ==# 'scrape'
+        let self.next_begin_marker = printf('--TterminalBeginOutput%s--', localtime())
+        let self.next_end_marker = printf('--TterminalEndOutput%s--', localtime())
+        let l:code = printf('tterminalWrapOutput(%s, %s, {%s})',
+                    \ string(self.next_begin_marker),
+                    \ string(self.next_end_marker),
+                    \ a:code)
+    elseif a:interaction_mode ==# 'file'
+        let self.tmpfile = tempname()
+        let l:code = printf('tterminalSendFileResponse(%s, {%s})',
+                    \ string(escape(self.tmpfile, '\')),
+                    \ a:code)
+    endif
+    Tlibtrace 'tterminal', a:use_terminal_api, l:code
+    return l:code
 endf
 
 
